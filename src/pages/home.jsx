@@ -1,6 +1,4 @@
 import Card from '../components/card.jsx';
-import Pancakes from '../assets/pancakes.jpeg';
-import Waffles from '../assets/waffles.jpg';
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react"
 
@@ -21,12 +19,6 @@ function Home() {
     // const recipes = [
     //     { id: 1, imageUrl: Pancakes, recipeName: "Pancakes", calories: "150 Kcal", prepTime: "1 Hr" },
     //     { id: 2, imageUrl: Waffles, recipeName: "Waffles", calories: "120 Kcal", prepTime: "45 Min" },
-    //     { id: 3, imageUrl: Waffles, recipeName: "Waffles", calories: "120 Kcal", prepTime: "45 Min" },
-    //     { id: 4, imageUrl: Waffles, recipeName: "Waffles", calories: "120 Kcal", prepTime: "45 Min" },
-    //     { id: 5, imageUrl: Waffles, recipeName: "Waffles", calories: "120 Kcal", prepTime: "45 Min" },
-    //     { id: 6, imageUrl: Waffles, recipeName: "Waffles", calories: "120 Kcal", prepTime: "45 Min" },
-    //     { id: 7, imageUrl: Waffles, recipeName: "Waffles", calories: "120 Kcal", prepTime: "45 Min" },
-    //     { id: 8, imageUrl: Waffles, recipeName: "Waffles", calories: "120 Kcal", prepTime: "45 Min" }
     // ];
     return (
         <div style={{ paddingTop: "5px" }}>
