@@ -1,8 +1,8 @@
 # Recipe_Manager
-Overview
+Overview-
 A simple web application that allows users to manage their recipes and ingredients. The app focuses on creating and viewing recipe details while helping users track which ingredients are available and which are missing.
 
-Features
+Features-
 1.	Recipe List Page (/)
 a.	Display a list of recipes.
 b.	Each recipe shows its name, image, and a View Details button.
@@ -31,7 +31,7 @@ b.	Use useEffect to load and save data from local storage.
 a.	Mobile: Recipes appear in a single-column card list.
 b.	Desktop/Tablet: Grid layout for better presentation.
 
-Tools and Libraries
+Tools and Libraries-
 •	React.js for core functionality.
 •	React Router for navigation.
 •	React-Toastify for notifications.
