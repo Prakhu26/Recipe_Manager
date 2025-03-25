@@ -26,27 +26,33 @@ function AddRecipe() {
     function handleImageChange(event) {
         const file = event.target.files[0];
         if (file) {
-            const imageUrl = URL.createObjectURL(file); // ✅ Generates a blob URL
-            setRecipe((prevRecipe) => ({
-                ...prevRecipe,
-                image: imageUrl, // ✅ Stores the blob URL
-            }));
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onloadend = () => {
+                setRecipe((prevRecipe) => ({
+                    ...prevRecipe,
+                    image: reader.result, // Save Base64 encoded image
+                }));
+            };
         }
-    }   
+    }     
+
+    const defaultImage = "src/assets/ducky.jpg"; // Default image URL
 
     function saveRecipe(event) {
         event.preventDefault();
 
-    const existingRecipes = JSON.parse(localStorage.getItem("recipes")) || [];
+        const existingRecipes = JSON.parse(localStorage.getItem("recipes")) || [];
 
-    const newRecipe = { 
+        const newRecipe = { 
         id: Date.now(),
         ...recipe, 
+        image: recipe.image || defaultImage, 
         ingredients: recipe.ingredients.split(","),
         steps: recipe.steps.split(",")
-    };
+        };
 
-    localStorage.setItem("recipes", JSON.stringify([...existingRecipes, newRecipe]));
+        localStorage.setItem("recipes", JSON.stringify([...existingRecipes, newRecipe]));
         
         toast.success("Recipe Saved Successfully!", {
             position: "top-right",
@@ -61,7 +67,7 @@ function AddRecipe() {
 
         setTimeout(() => {
             navigate("/");
-        }, 2000); // Delaying navigation to allow toast message to show
+        }, 2000); 
         
     }
 
@@ -71,11 +77,14 @@ function AddRecipe() {
 
     return (
         <div className="addRecipe-card">
-            <h1 style={{ fontSize: "50px", textAlign: "center" }}>Add Recipe</h1>
+            <h1 style={{ fontSize: "50px", textAlign: "center"}}>Add Recipe</h1>
 
             <div style={{ display: "flex", flexDirection: "column", alignItems: "left", marginBottom: "20px", position: "relative" }}>
-                {recipe.image && <img src={recipe.image} alt="Recipe Preview" style={{ width: "200px", height: "200px", objectFit: "cover", borderRadius: "10px", marginBottom: "10px" }} />}
-    
+                <img 
+                    src={recipe.image || defaultImage} 
+                    alt="Recipe Preview" 
+                    style={{ width: "100px", height: "100px", objectFit: "cover", borderRadius: "10px", marginBottom: "10px" }} 
+                /> 
                 <label htmlFor="imageUpload" style={{ marginBottom: "5px" }}>Recipe Image</label>
                 <input type="file" required id="imageUpload" accept="image/*" onChange={handleImageChange} style={{ textAlign: "left" }} />
             </div>
@@ -97,7 +106,6 @@ function AddRecipe() {
                 <label htmlFor="steps">Steps</label>
                 <input type="text" required id="steps" name="steps" placeholder="(Separate the steps using commas)" value={recipe.steps} onChange={handleChange} />
 
-                {/* Buttons: Refresh on the Left, Save on the Right */}
                 <div style={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
                     <button type="button" className="refresh-btn" onClick={refreshForm}>🔄 Refresh</button>
                     <button type="submit" className="save-btn">✅ Save</button>

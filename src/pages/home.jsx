@@ -26,7 +26,6 @@ function Home() {
                 <h1><b> RECIPE MANAGER </b></h1>
             </div>
 
-            {/* Grid container for cards */}
             <div className="card-container">
                 {recipes.map(recipe => (
                     <Card 
@@ -38,7 +37,7 @@ function Home() {
                         prepTime={recipe.prepTime} 
                     />
                 ))}
-                {/* Floating Add Button */}
+                
                 <button onClick={handleAddClick} className="add-btn">+</button>
             </div>
         </div>

@@ -65,7 +65,7 @@ function Recipe() {
             setRecipe(prev => ({
                 ...prev,
                 ingredients: prev.ingredients.map((ing, i) => 
-                    i === index ? value : ing // ✅ Directly update the string
+                    i === index ? value : ing 
                 )
             }));
         }
@@ -114,7 +114,7 @@ function Recipe() {
                         {isEditing ? (
                             <input
                                 type="text"
-                                value={ingredient}  // ✅ Use ingredient directly
+                                value={ingredient}  
                                 onChange={e => handleChange(e, "ingredients", index)}
                             />
                         ) : (
