@@ -98,10 +98,10 @@ function AddRecipe() {
                 <input type="text" required id="calories" name="calories" placeholder="150 kcal" value={recipe.calories} onChange={handleChange} />
 
                 <label htmlFor="prepTime">Prep Time</label>
-                <input type="text" required id="prepTime" name="prepTime" placeholder="1 hr 10 min (Separate the steps using commas)" value={recipe.prepTime} onChange={handleChange} />
+                <input type="text" required id="prepTime" name="prepTime" placeholder="1 hr 10 min" value={recipe.prepTime} onChange={handleChange} />
 
                 <label htmlFor="ingredients">Ingredients</label>
-                <input type="text" required id="ingredients" name="ingredients" placeholder="Flour- 1 cup" value={recipe.ingredients} onChange={handleChange} />
+                <input type="text" required id="ingredients" name="ingredients" placeholder="Flour- 1 cup (Separate the steps using commas)" value={recipe.ingredients} onChange={handleChange} />
 
                 <label htmlFor="steps">Steps</label>
                 <input type="text" required id="steps" name="steps" placeholder="(Separate the steps using commas)" value={recipe.steps} onChange={handleChange} />

@@ -215,3 +215,10 @@ input:checked + .slider:before {
   justify-content: center;
   align-items: center;
 }
+
+.recipe-meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 18px;
+}

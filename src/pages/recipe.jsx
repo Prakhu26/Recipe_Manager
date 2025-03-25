@@ -54,8 +54,8 @@ function Recipe() {
 
     function handleChange(event, field, index) {
         const value = event.target.value;
-        if (field === "name") {
-            setRecipe(prev => ({ ...prev, name: value }));
+        if (field === "name"|| field=== "calories"|| field==="prepTime" ) {
+            setRecipe(prev => ({ ...prev, [field]: value }));
         } else if (field === "steps") {
             setRecipe(prev => ({
                 ...prev,
@@ -106,7 +106,10 @@ function Recipe() {
                     <button className="edit-btn" onClick={handleEdit}>✏️ Edit</button>
                 )}
             </div>
-            
+            <div className="recipe-meta" style={{ display: "flex", justifyContent: "space-between", marginBottom: "15px" }}>
+                <p><strong>Calories:</strong> {isEditing ? <input type="text" value={recipe.calories} onChange={e => handleChange(e, "calories")} /> : recipe.calories}</p>
+                <p><strong>Prep Time:</strong> {isEditing ? <input type="text" value={recipe.prepTime} onChange={e => handleChange(e, "prepTime")} /> : recipe.prepTime}</p>
+            </div>
             <h3>Ingredients</h3>
             <ul>
                 {recipe.ingredients.map((ingredient, index) => (
