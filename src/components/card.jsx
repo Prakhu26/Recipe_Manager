@@ -12,7 +12,8 @@ function Card({ id, imageUrl, recipeName, calories, prepTime }) { // ✅ Accept 
     return (
         <div className="card">
             <img className="card-image" src={imageSrc} alt={recipeName} />
-            <h2><b>{recipeName}</b></h2>
+            <h2 style={{display: "block",  width: "100%", textAlign: "center",  whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis"}}>
+                    <b>{recipeName}</b></h2>
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
                 <div style={{ width: "50%" }}>
                     {calories}
